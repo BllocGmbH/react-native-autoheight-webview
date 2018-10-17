@@ -222,7 +222,7 @@ export default class AutoHeightWebView extends PureComponent {
     try {
       data = JSON.parse(isBelowKitKat ? e.nativeEvent.message : e.nativeEvent.data);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       return;
     }
     const { height, width } = data;
@@ -328,11 +328,11 @@ const commonScript = `
 const getBaseScript = isBelowKitKat
   ? function(style) {
       return `
-    ; 
+    ;
     ${commonScript}
     var width = ${getWidth(style)};
     function updateSize() {
-      var size = getSize(document.body.firstChild); 
+      var size = getSize(document.body.firstChild);
       height = size.height;
       width = size.width;
       AutoHeightWebView.send(JSON.stringify({ width, height }));
@@ -345,11 +345,11 @@ const getBaseScript = isBelowKitKat
     }
   : function(style) {
       return `
-    ; 
+    ;
     ${commonScript}
     var width = ${getWidth(style)};
     function updateSize() {
-      var size = getSize(document.body.firstChild); 
+      var size = getSize(document.body.firstChild);
       height = size.height;
       width = size.width;
       window.postMessage(JSON.stringify({ width, height }), '*');
