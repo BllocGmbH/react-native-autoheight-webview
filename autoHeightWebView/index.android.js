@@ -276,7 +276,7 @@ export default class AutoHeightWebView extends PureComponent {
       <Animated.View
         style={[
           styles.container,
-          getRenderSize(enableAnimation, height, width, heightOffset, heightValue, widthValue),
+          getRenderSize(enableAnimation, height, this.props.initHeight, width, heightOffset, heightValue, widthValue),
           style
         ]}
       >

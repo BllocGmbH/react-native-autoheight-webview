@@ -133,7 +133,9 @@ function getSize(container) {
 }
 `;
 
-export function getRenderSize(enableAnimation, height, width, heightOffset, heightValue, widthValue) {
+export function getRenderSize(enableAnimation, height, initHeight, width, heightOffset, heightValue, widthValue) {
+  console.log({initHeight, height})
+  if(height === 0) height=initHeight
   return {
     height: enableAnimation ? heightValue : height ? height + heightOffset : 0,
     width: enableAnimation ? widthValue : width
